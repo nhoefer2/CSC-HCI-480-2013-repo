@@ -64,7 +64,8 @@ public class RfParametersViewImpl extends PopupPanel implements RfParametersPres
     @UiHandler("submit")
     public void onSubmitClick(ClickEvent event){
         RFBuilder builder = new RFBuilder(presenter.getDataKey());
-        builder.setNtree(numTrees.getValue());
+        if(numTrees.getValue() != null)
+            builder.setNtree(numTrees.getValue());
         int classVarSelected = classVars.getSelectedIndex();
         String classVarVal = classVars.getValue(classVarSelected);
         builder.setResponseVariable(classVarVal);
